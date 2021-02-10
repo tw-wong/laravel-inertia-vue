@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EventCreateRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Event;
@@ -20,7 +21,8 @@ class EventController extends Controller
         // ]);
         
         return Inertia::render('Events/Index', [
-            'title' => 'Hello Inertia ' . date('Y-m-d H:i:s'), 
+            // 'title' => 'Hello Inertia ' . date('Y-m-d H:i:s'), 
+            'events' => Event::all(),             
         ]);
     }
 
@@ -31,7 +33,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Events/Create');
     }
 
     /**
@@ -40,9 +42,13 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventCreateRequest $request)
     {
-        //
+        
+        $data = $request->validated();        
+        Event::create($data);
+        
+        return redirect()->route('events.index')->with('message', 'Event has been created.');
     }
 
     /**

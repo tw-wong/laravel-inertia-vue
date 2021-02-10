@@ -2,9 +2,8 @@
   <main>
     <header>
       <inertia-link href="/">Home</inertia-link>
-      <inertia-link href="/about">About</inertia-link>
-      <!-- <inertia-link href="/events">Event</inertia-link> -->
-      <inertia-link :href="$route('events.index')">Event</inertia-link>
+      <inertia-link :href="$route('events.create')">Create</inertia-link>
+      <inertia-link :href="$route('events.index')">List</inertia-link>
     </header>
     <article>
       <slot />

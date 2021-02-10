@@ -162,7 +162,9 @@ Add `resources/views/app.blade.php`:
 Create `resources/js/Layout.vue`
 
 
+=========================================
 
+$ php artisan make:request EventCreateRequest
 
 
 

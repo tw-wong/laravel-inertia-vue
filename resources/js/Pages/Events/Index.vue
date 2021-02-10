@@ -1,5 +1,5 @@
 <template>
-  <div> {{ title }} zzz</div>
+  <div> {{ $page.props.flash.message }}</div>
 </template>
 
 <script>
