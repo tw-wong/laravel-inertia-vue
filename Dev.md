@@ -181,6 +181,12 @@ Feature testing
 
 
 TODO:
+Vue:
+- detail page
+- edit page
+- delete page
+
+
 Laravel:
 - Service container (ioc)
 - Service provider

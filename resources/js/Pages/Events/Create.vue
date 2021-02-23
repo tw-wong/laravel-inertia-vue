@@ -87,6 +87,7 @@
         }),
       }
     }, 
+    
     methods: {
       submit() {
         // console.log('submit');
@@ -102,9 +103,6 @@
 
     // Using the shorthand
     layout: Layout,   
-    
-    // props: {
-    //   title: String,
-    // },
+
   }
 </script>
