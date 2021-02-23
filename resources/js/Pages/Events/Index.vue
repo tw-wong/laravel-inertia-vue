@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <div v-if="$page.props.flash.message" class="alert alert-success" role="alert">{{ $page.props.flash.message }}</div>
-    
+    <div v-if="$page.props.flash.message" class="alert alert-success" role="alert">
+      {{ $page.props.flash.message }}
+    </div>
     
     <table class="table table-striped table-bordered">
       <thead class="thead-dark">
@@ -21,10 +22,6 @@
         </tr>
       </tbody>
     </table>
-
-    
-      
-
   </div>
 </template>
 
