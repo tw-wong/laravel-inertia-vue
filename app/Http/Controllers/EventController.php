@@ -90,9 +90,13 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        
+        return Inertia::render('Events/Edit', [
+            'event' => $event->only('id', 'title', 'description', 'date_time'), 
+        ]);
     }
 
     /**
@@ -113,8 +117,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(int $id)
+    {        
+        Event::destroy($id);
+        return redirect()->route('events.index')->with('message', 'Event has been deleted.');
     }
 }

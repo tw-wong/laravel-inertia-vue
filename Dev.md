@@ -186,7 +186,7 @@ Vue:
 - edit page
 - delete page
 - breadcrumb
-- events/{id} not found.
+- edit form bind data (daet_time)
 
 
 Laravel:
@@ -196,6 +196,7 @@ Laravel:
 - typed hint parameter
 - Class Aliases
 - Facade
+- Eloquent findorfail
 
 OOP
 - abstract class

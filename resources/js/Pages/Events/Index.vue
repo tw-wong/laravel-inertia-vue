@@ -18,7 +18,7 @@
           <th scope="row">{{ index + 1 }}</th>
           <td><inertia-link :href="$route('events.show', event.id)">{{ event.title }}</inertia-link></td>
           <td>{{ event.date_time }}</td>
-          <td><a href="">Edit</a> | <a href="">Delete</a></td>
+          <td><inertia-link :href="$route('events.edit', event.id)">Edit</inertia-link> | <a href="javascript:;" @click="deleteEvent(event.id)">Delete</a></td>
         </tr>
       </tbody>
     </table>
@@ -36,6 +36,13 @@
         type: Array,
         required: true
       }
-    },    
+    }, 
+    methods: {
+      deleteEvent(id) {
+        if(confirm("Do you really want to delete?")){
+          this.$inertia.delete(this.$route('events.destroy', id));
+        }
+      }
+    }, 
   }
 </script>
