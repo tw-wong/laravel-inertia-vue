@@ -16,7 +16,7 @@
       <tbody>
         <tr v-for="(event, index) in events" :key="event.id">
           <th scope="row">{{ index + 1 }}</th>
-          <td><a href="">{{ event.title }}</a></td>
+          <td><inertia-link :href="$route('events.show', event.id)">{{ event.title }}</inertia-link></td>
           <td>{{ event.date_time }}</td>
           <td><a href="">Edit</a> | <a href="">Delete</a></td>
         </tr>
@@ -29,22 +29,13 @@
   import Layout from '../../Layout'
 
   export default {
+    layout: Layout, 
+    
     props: {
       events: {
         type: Array,
         required: true
       }
-    }, 
-    
-    data() {
-      return {
-      }
-    },
-    
-    // Using a render function
-    layout: (h, page) => h(Layout, [page]),
-
-    // Using the shorthand
-    layout: Layout, 
+    },    
   }
 </script>

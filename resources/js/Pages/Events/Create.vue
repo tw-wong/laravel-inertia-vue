@@ -74,6 +74,8 @@
   import Layout from '../../Layout'
 
   export default {
+    layout: Layout,
+    
     props: {
       errors: Object,
     }, 
@@ -97,12 +99,5 @@
 
       }
     },
-    
-    // Using a render function
-    layout: (h, page) => h(Layout, [page]),
-
-    // Using the shorthand
-    layout: Layout,   
-
   }
 </script>

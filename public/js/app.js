@@ -457,6 +457,14 @@ var map = {
 		"./resources/js/Pages/Events/Index.vue",
 		"resources_js_Pages_Events_Index_vue"
 	],
+	"./Events/Show": [
+		"./resources/js/Pages/Events/Show.vue",
+		"resources_js_Pages_Events_Show_vue"
+	],
+	"./Events/Show.vue": [
+		"./resources/js/Pages/Events/Show.vue",
+		"resources_js_Pages_Events_Show_vue"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
@@ -548,7 +556,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + chunkId + ".js?id=" + {"resources_js_Pages_Events_Create_vue":"6714b38849ff89e21ec8","resources_js_Pages_Events_Index_vue":"70f14d0d3b47a9c51d8b","resources_js_Pages_Home_vue":"4ec407726c91d5554cef"}[chunkId] + "";
+/******/ 			return "js/" + chunkId + ".js?id=" + {"resources_js_Pages_Events_Create_vue":"eedf6483256846b9dcf9","resources_js_Pages_Events_Index_vue":"26c32e59b1a33fa229f9","resources_js_Pages_Events_Show_vue":"e98fc6eb5f0bb10abb40","resources_js_Pages_Home_vue":"4ec407726c91d5554cef"}[chunkId] + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	

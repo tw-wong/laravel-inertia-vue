@@ -182,15 +182,17 @@ Feature testing
 
 TODO:
 Vue:
-- detail page
+[OK]- detail page
 - edit page
 - delete page
+- breadcrumb
+- events/{id} not found.
 
 
 Laravel:
-- Service container (ioc)
+[OK]- Service container (ioc)
 - Service provider
-- Service class
+[OK]- Service class
 - typed hint parameter
 - Class Aliases
 - Facade

@@ -77,7 +77,11 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        
+        return Inertia::render('Events/Show', [
+            'event' => $event->only('id', 'title', 'description', 'date_time'), 
+        ]);
     }
 
     /**
