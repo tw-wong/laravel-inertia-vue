@@ -163,8 +163,38 @@ Create `resources/js/Layout.vue`
 
 
 =========================================
+Create Request class
 
 $ php artisan make:request EventCreateRequest
+
+Create Service class
+
+Create Repository class
+
+Fail to create event if time is overlapping.
+
+Pagination
+
+Unit testing
+
+Feature testing
+
+
+TODO:
+Laravel:
+- Service container (ioc)
+- Service provider
+- Service class
+- typed hint parameter
+- Class Aliases
+- Facade
+
+OOP
+- abstract class
+
+scope
+- protected
+- static
 
 
 

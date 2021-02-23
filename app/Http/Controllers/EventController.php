@@ -6,9 +6,20 @@ use App\Http\Requests\EventCreateRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Event;
+use App\Services\EventService\NotificationInterface;
+use stdClass;
 
 class EventController extends Controller
 {
+    protected $notification;
+    
+    public function __construct(NotificationInterface $notification)
+    {
+        $this->notification = $notification;
+        
+        
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +30,7 @@ class EventController extends Controller
         // return Inertia::render('Events/Index', [
         //     'events' => Event::all(), 
         // ]);
+            
         
         return Inertia::render('Events/Index', [
             // 'title' => 'Hello Inertia ' . date('Y-m-d H:i:s'), 
@@ -47,6 +59,12 @@ class EventController extends Controller
         
         $data = $request->validated();        
         Event::create($data);
+        
+        
+        $user = new stdClass;
+        $user->name = 'Hello';
+        $message = 'Create success message';
+        $this->notification->send($user, $message);
         
         return redirect()->route('events.index')->with('message', 'Event has been created.');
     }
