@@ -57,7 +57,7 @@
             :disabled="form.processing"
             class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2"
           >
-            Create
+            Update
           </button>
           <inertia-link
             :href="$route('events.index')"
@@ -99,11 +99,7 @@
     
     methods: {
       submit() {
-        // console.log('submit');
-        // console.log(this.$route('events.store'));
-        // console.log(this.form);
-        this.$inertia.post(this.$route('events.store'), this.form);
-
+        this.$inertia.put(this.$route('events.update', this.event.id), this.form);
       }
     },
   }

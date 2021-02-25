@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EventCreateRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\EventUpdateRequest;
 use Inertia\Inertia;
 use App\Models\Event;
 use App\Services\EventService\NotificationInterface;
@@ -75,7 +75,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
         $event = Event::findOrFail($id);
         
@@ -98,7 +98,7 @@ class EventController extends Controller
             'event' => $event->only('id', 'title', 'description', 'date_time'), 
         ]);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -106,9 +106,12 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EventUpdateRequest $request, int $id)
     {
-        //
+        $data = $request->validated();
+        
+        Event::where('id', $id)->update($data);
+        return redirect()->route('events.index')->with('message', 'Event has been updated.');
     }
 
     /**

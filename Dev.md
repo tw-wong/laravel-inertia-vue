@@ -197,6 +197,7 @@ Laravel:
 - Class Aliases
 - Facade
 - Eloquent findorfail
+- Exception
 
 OOP
 - abstract class
