@@ -36,13 +36,15 @@
         </div>
         
         <div class="form-group mb-5">
-          <input
+          <!-- <input
             v-model="form.date_time"
             :class="{'is-invalid': errors.date_time}"
             class="form-control h-auto form-control-solid py-4 px-8"
             type="datetime-local"
             placeholder="please enter date time"
-          >
+          > -->
+          
+          <input type="text" class="datepicker" />
           <div
             v-if="errors.date_time"
             class="invalid-feedback text-left"

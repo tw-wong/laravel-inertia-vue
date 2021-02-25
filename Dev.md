@@ -188,6 +188,39 @@ Vue:
 - breadcrumb
 - edit form bind data (daet_time)
 
+JQuery:
+
+$ npm install jquery-ui --save-dev
+
+$ vi resources/assets/js/app.js
+```
+// JQuery and its plugins
+global.$ = global.jQuery  = require('jquery');
+global.datepicker         = require('jquery-ui/ui/widgets/datepicker');
+```
+
+$ vi webpack.mix.js
+```
+mix.autoload({
+  jquery: ['$', 'window.$', 'jQuery', 'window.jQuery']
+});
+```
+
+$ vi resources/views/app.blade.php
+```
+  <script type="text/javascript">
+    window.addEventListener('load', function() {
+      $('.datepicker').datepicker({  
+         format: 'yyyy-mm-dd'
+       });
+    });
+  </script>
+```
+
+
+https://medium.com/@nedsoft/how-to-add-jquery-ui-plugin-to-a-laravel-app-using-laravel-mix-e85bf0244fc1
+https://medium.com/@onwuka_gideon/fixing-laravel-jquery-is-not-defined-a316fd918e0a
+https://laravel-mix.com/docs/5.0/jquery-ui
 
 Laravel:
 [OK]- Service container (ioc)

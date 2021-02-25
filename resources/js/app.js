@@ -15,4 +15,8 @@ new Vue({
       resolveErrors: page => (page.props.errors || {}),
     },
   }),
-}).$mount(el)
+}).$mount(el);
+
+// JQuery and its plugins
+global.$ = global.jQuery  = require('jquery');
+global.datepicker         = require('jquery-ui/ui/widgets/datepicker');

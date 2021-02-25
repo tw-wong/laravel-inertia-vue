@@ -15,6 +15,10 @@ const mix = require('laravel-mix');
 //     .vue()
 //     .sass('resources/sass/app.scss', 'public/css');
 
+mix.autoload({
+  jquery: ['$', 'window.$', 'jQuery', 'window.jQuery']
+});
+
 mix.js('resources/js/app.js', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
     // .postCss('resources/css/app.css', 'public/css', [
