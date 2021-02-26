@@ -9,9 +9,12 @@
         <div class="col-10">{{ event.description }}</div>
     </div>
     <div class="row">
-        <div class="col-2">Date time:</div>
+        <div class="col-2">Date:</div>
         <div class="col-10">{{ event.date }}</div>
     </div>
+    
+    <inertia-link :href="$route('events.edit', event.id)" method="get" as="button" type="button" class="btn btn-primary">Edit</inertia-link>
+    <inertia-link :href="$route('events.index')" method="get" as="button" type="button" class="btn btn-secondary">Back</inertia-link>
   </div>
 </template>
 
@@ -26,7 +29,7 @@
         type: Object,
         required: true
       }
-    },  
+    }, 
   }
 </script>    
     
