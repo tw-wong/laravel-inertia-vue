@@ -21,7 +21,7 @@ class EventSeeder extends Seeder
         DB::table('events')->insert([
             'title' => 'Title: ' . Str::random(10),
             'description' => 'Desc: ' .  Str::random(100), 
-            'date_time' => $dateTime, 
+            'date' => $dateTime, 
         ]);
     }
 }

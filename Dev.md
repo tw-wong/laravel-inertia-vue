@@ -223,10 +223,29 @@ $ vi resources/sass/app.scss
 @import '~jquery-ui/themes/base/all.css';
 ```
 
+$ vi resources/js/Pages/Events/Create.vue
+```
+    mounted() {
+      var self = this;
+      $('.datepicker').datepicker({
+        onSelect:function(selectedDate, datePicker) {
+            self.form.date = selectedDate;
+        }, 
+        dateFormat: 'yy-mm-dd'
+      });
+    },
+```    
+
 
 https://medium.com/@nedsoft/how-to-add-jquery-ui-plugin-to-a-laravel-app-using-laravel-mix-e85bf0244fc1
 https://medium.com/@onwuka_gideon/fixing-laravel-jquery-is-not-defined-a316fd918e0a
 https://laravel-mix.com/docs/5.0/jquery-ui
+
+Alter table:
+$ composer require doctrine/dbal
+$ php artisan make:migration drop_date_time_add_date_events_table
+$ php artisan migrate
+$ php artisan db:seed --class=\\Database\\Seeders\\Dummies\\EventSeeder
 
 Laravel:
 [OK]- Service container (ioc)

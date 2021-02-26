@@ -17,7 +17,7 @@
         <tr v-for="(event, index) in events" :key="event.id">
           <th scope="row">{{ index + 1 }}</th>
           <td><inertia-link :href="$route('events.show', event.id)">{{ event.title }}</inertia-link></td>
-          <td>{{ event.date_time }}</td>
+          <td>{{ event.date }}</td>
           <td><inertia-link :href="$route('events.edit', event.id)">Edit</inertia-link> | <a href="javascript:;" @click="deleteEvent(event.id)">Delete</a></td>
         </tr>
       </tbody>

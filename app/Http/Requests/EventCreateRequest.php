@@ -32,7 +32,7 @@ class EventCreateRequest extends FormRequest
             'title'         => 'required|string|max:' . self::TITLE_MAX_LENGTH, 
             'description'   => 'required|string', 
             // 'date_time'     => 'required|date_format:d/m/Y, H:i A', 
-            'date_time'     => 'required|string',
+            'date'     => 'required|date_format:Y-m-d',
         ];
     }
 }

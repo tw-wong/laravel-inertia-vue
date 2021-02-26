@@ -17,18 +17,18 @@ class Event extends Model
     protected $fillable = [
         'title',
         'description',
-        'date_time',
+        'date',
     ];
         
-    public function setDateTimeAttribute($value)
-    {
-        $this->attributes['date_time'] = date('Y-m-d H:i:s', strtotime($value));
-    }
+    // public function setDateTimeAttribute($value)
+    // {
+    //     $this->attributes['date_time'] = date('Y-m-d H:i:s', strtotime($value));
+    // }
     
-    public function getDateTimeAttribute($value)
-    {
-        return date('Y-m-d\TH:i', strtotime($value));        
-    }
+    // public function getDateTimeAttribute($value)
+    // {
+    //     return date('Y-m-d\TH:i', strtotime($value));        
+    // }
     
     public function run()
     {

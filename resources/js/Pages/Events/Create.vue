@@ -37,17 +37,17 @@
         
         <div class="form-group mb-5">
           <input
-            v-model="form.date_time"
-            :class="{'is-invalid': errors.date_time}"
-            class="form-control h-auto form-control-solid py-4 px-8"
-            type="datetime-local"
-            placeholder="please enter date time"
+            v-model="form.date"
+            :class="{'is-invalid': errors.date}"
+            class="datepicker form-control h-auto form-control-solid py-4 px-8"
+            type="text"
+            placeholder="please enter date"
           >
           <div
-            v-if="errors.date_time"
+            v-if="errors.date"
             class="invalid-feedback text-left"
           >
-            {{ errors.date_time }}
+            {{ errors.date }}
           </div>
         </div>
     
@@ -85,10 +85,20 @@
         form: this.$inertia.form({
           title: null,
           description: null, 
-          date_time: null, 
+          date: null, 
         }),
       }
     }, 
+    
+    mounted() {
+      var self = this;
+      $('.datepicker').datepicker({
+        onSelect:function(selectedDate, datePicker) {
+            self.form.date = selectedDate;
+        }, 
+        dateFormat: 'yy-mm-dd'
+      });
+    },
     
     methods: {
       submit() {

@@ -9,13 +9,5 @@
   <body>
     @routes
     @inertia
-    
-  <script type="text/javascript">
-    window.addEventListener('load', function() {
-      $('.datepicker').datepicker({  
-         format: 'yyyy-mm-dd'
-       });
-    });
-  </script>
   </body>
 </html>

@@ -80,7 +80,7 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         
         return Inertia::render('Events/Show', [
-            'event' => $event->only('id', 'title', 'description', 'date_time'), 
+            'event' => $event->only('id', 'title', 'description', 'date'), 
         ]);
     }
 
@@ -95,7 +95,7 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         
         return Inertia::render('Events/Edit', [
-            'event' => $event->only('id', 'title', 'description', 'date_time'), 
+            'event' => $event->only('id', 'title', 'description', 'date'), 
         ]);
     }
     

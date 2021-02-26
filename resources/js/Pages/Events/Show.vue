@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-2">Date time:</div>
-        <div class="col-10">{{ event.date_time }}</div>
+        <div class="col-10">{{ event.date }}</div>
     </div>
   </div>
 </template>
