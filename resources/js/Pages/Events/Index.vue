@@ -31,6 +31,11 @@
   export default {
     layout: Layout, 
     
+    metaInfo: {
+      title: 'Event listing',
+      titleTemplate: '%s - Laravel Inertia.js',
+    }, 
+        
     props: {
       events: {
         type: Array,

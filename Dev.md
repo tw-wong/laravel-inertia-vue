@@ -236,6 +236,9 @@ $ vi resources/js/Pages/Events/Create.vue
     },
 ```    
 
+vue-meta:
+$ npm install vue-meta --save
+
 
 https://medium.com/@nedsoft/how-to-add-jquery-ui-plugin-to-a-laravel-app-using-laravel-mix-e85bf0244fc1
 https://medium.com/@onwuka_gideon/fixing-laravel-jquery-is-not-defined-a316fd918e0a

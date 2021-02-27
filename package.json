@@ -28,6 +28,7 @@
     "dependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@inertiajs/inertia": "^0.8.4",
-        "@inertiajs/inertia-vue": "^0.5.5"
+        "@inertiajs/inertia-vue": "^0.5.5",
+        "vue-meta": "^2.4.0"
     }
 }

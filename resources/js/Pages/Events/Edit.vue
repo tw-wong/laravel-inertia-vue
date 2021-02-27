@@ -76,7 +76,12 @@
 
   export default {
     layout: Layout,
-    
+
+    metaInfo: {
+      title: 'Edit event',
+      titleTemplate: '%s - Laravel Inertia.js',
+    }, 
+
     props: {
       errors: {
         type: Object,

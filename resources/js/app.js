@@ -1,7 +1,9 @@
 import { App, plugin } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
+import VueMeta from 'vue-meta'
 
 Vue.use(plugin)
+Vue.use(VueMeta)
 
 Vue.prototype.$route = route
 

@@ -81,6 +81,7 @@ class EventController extends Controller
         
         return Inertia::render('Events/Show', [
             'event' => $event->only('id', 'title', 'description', 'date'), 
+            'title' => 'Show xx',
         ]);
     }
 
