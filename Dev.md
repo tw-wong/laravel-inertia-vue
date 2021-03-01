@@ -250,6 +250,9 @@ $ php artisan make:migration drop_date_time_add_date_events_table
 $ php artisan migrate
 $ php artisan db:seed --class=\\Database\\Seeders\\Dummies\\EventSeeder
 
+Vue.js
+- Breadcrumbs
+
 Laravel:
 [OK]- Service container (ioc)
 - Service provider
