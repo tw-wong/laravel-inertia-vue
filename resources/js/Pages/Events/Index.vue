@@ -29,12 +29,14 @@
   import Layout from '../../Layout'
 
   export default {
+    name: 'Index', 
+    
     layout: Layout, 
     
-    metaInfo: {
-      title: 'Event listing',
-      titleTemplate: '%s - Laravel Inertia.js',
-    }, 
+    // metaInfo: {
+    //   title: 'Event listing',
+    //   titleTemplate: '%s - Laravel Inertia.js',
+    // }, 
         
     props: {
       events: {

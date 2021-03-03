@@ -74,12 +74,13 @@
   import Layout from '../../Layout'
 
   export default {
+    name: 'Create', 
     layout: Layout,
     
-    metaInfo: {
-      title: 'Create event',
-      titleTemplate: '%s - Laravel Inertia.js',
-    }, 
+    // metaInfo: {
+    //   title: 'Create event',
+    //   titleTemplate: '%s - Laravel Inertia.js',
+    // }, 
     
     props: {
       errors: Object,
@@ -107,11 +108,7 @@
     
     methods: {
       submit() {
-        // console.log('submit');
-        // console.log(this.$route('events.store'));
-        // console.log(this.form);
         this.$inertia.post(this.$route('events.store'), this.form);
-
       }
     },
   }

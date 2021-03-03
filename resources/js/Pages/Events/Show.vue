@@ -13,7 +13,7 @@
         <div class="col-10">{{ event.date }}</div>
     </div>
     
-    <inertia-link :href="$route('events.edit', event.id)" method="get" as="button" type="button" class="btn btn-primary">Edit</inertia-link>
+    <inertia-link :href="$route('events.edit', event.id)" method="get" as="button" type="button" class="btn btn-primary mr-3">Edit</inertia-link>
     <inertia-link :href="$route('events.index')" method="get" as="button" type="button" class="btn btn-secondary">Back</inertia-link>
   </div>
 </template>
@@ -22,12 +22,14 @@
   import Layout from '../../Layout'
 
   export default {
+    name: 'Show',
+    
     layout: Layout,
 
-    metaInfo: {
-      title: 'Show event',
-      titleTemplate: '%s - Laravel Inertia.js',
-    }, 
+    // metaInfo: {
+    //   title: 'Show event',
+    //   titleTemplate: '%s - Laravel Inertia.js',
+    // }, 
     
     props: {
       event: {

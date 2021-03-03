@@ -5,14 +5,17 @@
 </template>
 
 <script>
+  // import Layout from '../Layout'
   import Layout from '../Layout'
 
   export default {
-    layout: Layout, 
+    name: 'Home', 
     
-    metaInfo: {
-      title: 'Home',
-      titleTemplate: '%s - Laravel Inertia.js',
-    },     
+    layout: Layout, 
+        
+    // metaInfo: {
+    //   title: 'Home',
+    //   titleTemplate: '%s - Laravel Inertia.js',
+    // },     
   }
 </script>

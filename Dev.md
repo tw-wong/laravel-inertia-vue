@@ -250,6 +250,19 @@ $ php artisan make:migration drop_date_time_add_date_events_table
 $ php artisan migrate
 $ php artisan db:seed --class=\\Database\\Seeders\\Dummies\\EventSeeder
 
+
+Upgrade Vue 2 to 3:
+npm install --save vue@next vue-loader@next
+npm install @inertiajs/inertia @inertiajs/inertia-vue3
+npm uninstall @inertiajs/inertia-vue
+
+# stop npm run watch and execute the following command, then run watch again
+$ npm install @vue/compiler-sfc --save-dev --legacy-peer-deps
+$ npm run watch
+
+
+
+
 Vue.js
 - Breadcrumbs
 

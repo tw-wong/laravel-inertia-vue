@@ -75,12 +75,14 @@
   import Layout from '../../Layout'
 
   export default {
+    name: 'Edit', 
+    
     layout: Layout,
 
-    metaInfo: {
-      title: 'Edit event',
-      titleTemplate: '%s - Laravel Inertia.js',
-    }, 
+    // metaInfo: {
+    //   title: 'Edit event',
+    //   titleTemplate: '%s - Laravel Inertia.js',
+    // }, 
 
     props: {
       errors: {
