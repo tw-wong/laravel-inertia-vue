@@ -3,70 +3,67 @@
     <form
         class="form" @submit.prevent="submit">
     
-        <div class="form-group mb-5">
-          <input
-            v-model="form.title"
-            :class="{'is-invalid': errors.title}"
-            class="form-control h-auto form-control-solid py-4 px-8"
-            type="text"
-            placeholder="please enter title"
-          >
-          <div
-            v-if="errors.title"
-            class="invalid-feedback text-left"
-          >
-            {{ errors.title }}
-          </div>
-        </div>
-        
-        <div class="form-group mb-5">
-          <textarea 
-            v-model="form.description" 
-            placeholder="please enter description" 
-            :class="{'is-invalid': errors.description}"
-            class="form-control h-auto form-control-solid py-4 px-8"
-          ></textarea>
-          
-          <div
-            v-if="errors.description"
-            class="invalid-feedback text-left"
-          >
-            {{ errors.description }}
-          </div>
-        </div>
-        
-        <div class="form-group mb-5">
-          <input
-            v-model="form.date"
-            :class="{'is-invalid': errors.date}"
-            class="datepicker form-control h-auto form-control-solid py-4 px-8"
-            type="text"
-            placeholder="please enter date time"
-          >
-          
-          <div
-            v-if="errors.date"
-            class="invalid-feedback text-left"
-          >
-            {{ errors.date }}
-          </div>
-        </div>
-    
-        <div class="form-group d-flex flex-wrap flex-center mt-10">
-          <button
-            type="submit"
-            :disabled="form.processing"
-            class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2"
-          >
-            Update
-          </button>
-          <inertia-link
-            :href="$route('events.index')"
-            class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2"
-          >
-            Cancel
-          </inertia-link>
+      <div class="form-group">
+        <label for="eventTitle" class="font-weight-bold">Title:</label>
+        <input
+          type="text" id="eventTitle"
+          v-model="form.title"
+          :class="{'is-invalid': errors.title}"
+          class="form-control p-3"
+          placeholder="Please enter title"
+        >
+        <div
+          v-if="errors.title"
+          class="invalid-feedback"
+        >
+          {{ errors.title }}
         </div>    
+      </div>
+      
+      <div class="form-group">
+        <label for="eventDescription" class="font-weight-bold">Description:</label>
+        <textarea
+          id="eventDescription"
+          v-model="form.description"
+          :class="{'is-invalid': errors.description}"
+          class="form-control p-3"
+          placeholder="Please enter description"
+        ></textarea>
+        <div
+          v-if="errors.description"
+          class="invalid-feedback"
+        >
+          {{ errors.description }}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="eventDate" class="font-weight-bold">Date:</label>
+        <input
+          type="text" id="eventDate"
+          v-model="form.date"
+          :class="{'is-invalid': errors.date}"
+          class="form-control p-3 datepicker"
+          placeholder="Please enter date"
+        >
+        <div
+          v-if="errors.date"
+          class="invalid-feedback"
+        >
+          {{ errors.date }}
+        </div>    
+      </div>
+      
+      <button
+        type="submit"
+        :disabled="form.processing"
+        class="btn btn-primary mr-3"
+      >Update</button>
+      
+      <inertia-link 
+        :href="$route('events.index')" 
+        method="get" as="button" type="button" 
+        class="btn btn-secondary">Cancel</inertia-link>
     </form>
   </div>
 </template>

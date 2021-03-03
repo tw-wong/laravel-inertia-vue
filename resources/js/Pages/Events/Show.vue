@@ -1,20 +1,27 @@
 <template>
   <div class="container">
     <div class="row">
-        <div class="col-2">Title:</div>
-        <div class="col-10">{{ event.title }}</div>
+      <div class="col-2 font-weight-bold">Title:</div>
+      <div class="col-10">{{ event.title }}</div>
     </div>
     <div class="row">
-        <div class="col-2">Description:</div>
-        <div class="col-10">{{ event.description }}</div>
+      <div class="col-2 font-weight-bold">Description:</div>
+      <div class="col-10">{{ event.description }}</div>
     </div>
     <div class="row">
-        <div class="col-2">Date:</div>
-        <div class="col-10">{{ event.date }}</div>
+      <div class="col-2 font-weight-bold">Date:</div>
+      <div class="col-10">{{ event.date }}</div>
     </div>
     
-    <inertia-link :href="$route('events.edit', event.id)" method="get" as="button" type="button" class="btn btn-primary mr-3">Edit</inertia-link>
-    <inertia-link :href="$route('events.index')" method="get" as="button" type="button" class="btn btn-secondary">Back</inertia-link>
+    <inertia-link 
+      :href="$route('events.edit', event.id)" 
+      method="get" as="button" type="button" 
+      class="btn btn-primary mr-3">Edit</inertia-link>
+      
+    <inertia-link 
+      :href="$route('events.index')" 
+      method="get" as="button" type="button" 
+      class="btn btn-secondary">Back</inertia-link>
   </div>
 </template>
 
