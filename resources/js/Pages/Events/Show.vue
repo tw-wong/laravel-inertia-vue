@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>Event info</h2>
     <div class="row">
       <div class="col-2 font-weight-bold">Title:</div>
       <div class="col-10">{{ event.title }}</div>

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>List of event</h2>
     <div v-if="$page.props.flash.message" class="alert alert-success" role="alert">
       {{ $page.props.flash.message }}
     </div>

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>Edit event</h2>
     <form
         class="form" @submit.prevent="submit">
     
