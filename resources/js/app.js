@@ -39,6 +39,7 @@ const app = createApp({
 app.config.globalProperties.$route = route;
 app.use(plugin);
 // app.use(VueMeta);
+app.provide('route', route);
 app.mount(el);
 
 // // JQuery and its plugins

@@ -3,6 +3,8 @@
     <h2>Create event</h2>
     <form
         class="form" @submit.prevent="submit">
+      <!-- <form
+        class="form" @submit.prevent="form.post($route('events.store'))">         -->
               
       <div class="form-group">
         <label for="eventTitle" class="font-weight-bold">Title:</label>
@@ -45,6 +47,7 @@
           v-model="form.date"
           :class="{'is-invalid': errors.date}"
           class="form-control p-3 datepicker"
+          autocomplete="off"
           placeholder="Please enter date"
         >
         <div
@@ -70,45 +73,51 @@
 </template>
 
 <script>
-  import Layout from '../../Layout'
+import { inject, onMounted } from 'vue'
+import { useForm } from '@inertiajs/inertia-vue3';
+import Layout from '../../Layout'
 
-  export default {
-    name: 'Create', 
-    layout: Layout,
+export default {
+  name: 'Create', 
+  
+  components: {
+    Layout, 
+  }, 
+  
+  layout: Layout,
+  
+  props: {
+    errors: Object, 
+  }, 
+  
+  setup () {
+    // const inst = getCurrentInstance();
+    const route = inject('route');
     
-    // metaInfo: {
-    //   title: 'Create event',
-    //   titleTemplate: '%s - Laravel Inertia.js',
-    // }, 
+    const form = useForm({
+      title: null,
+      description: null, 
+      date: null, 
+    });
     
-    props: {
-      errors: Object,
-    }, 
-    
-    data() {
-      return {
-        form: this.$inertia.form({
-          title: null,
-          description: null, 
-          date: null, 
-        }),
-      }
-    }, 
-    
-    mounted() {
-      var self = this;
+    onMounted(() => {
       $('.datepicker').datepicker({
-        onSelect:function(selectedDate, datePicker) {
-            self.form.date = selectedDate;
+        onSelect:function(selectedDate) {
+          form.value.date = selectedDate;
         }, 
         dateFormat: 'yy-mm-dd'
-      });
-    },
+      });      
+    })
     
-    methods: {
-      submit() {
-        this.$inertia.post(this.$route('events.store'), this.form);
-      }
-    },
+    const submit = () => {    
+      // console.log(inst.appContext.config.globalProperties.$route('events.store'));
+      form.value.post(route('events.store'));      
+    }
+    
+    return {
+      form, 
+      submit
+    }
   }
+}
 </script>
