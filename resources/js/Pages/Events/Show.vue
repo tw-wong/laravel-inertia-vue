@@ -27,28 +27,33 @@
 </template>
 
 <script>
-  import Layout from '../../Layout'
+import Layout from '../../Layout'
 
-  export default {
-    name: 'Show',
-    
-    layout: Layout,
-
-    // metaInfo: {
-    //   title: 'Show event',
-    //   titleTemplate: '%s - Laravel Inertia.js',
-    // }, 
-    
-    props: {
-      event: {
-        type: Object,
-        required: true
-      }, 
-      title: {
-        type: String,
-        required: true
-      }
+export default {
+  name: 'Show', 
+  
+  components: {
+    Layout, 
+  }, 
+  
+  layout: Layout,  
+  
+  // metaInfo: {
+  //   title: 'Show event',
+  //   titleTemplate: '%s - Laravel Inertia.js',
+  // }, 
+  
+  props: {
+    event: {
+      type: Object,
+      required: true
     }, 
-  }
-</script>    
+    
+    title: {
+      type: String,
+      required: true
+    }
+  },   
+}
+</script>
     
