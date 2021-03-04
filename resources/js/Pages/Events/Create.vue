@@ -86,6 +86,11 @@ export default {
   
   layout: Layout,
   
+  // metaInfo: {
+  //   title: 'Create event',
+  //   titleTemplate: '%s - Laravel Inertia.js',
+  // },   
+  
   props: {
     errors: Object, 
   }, 

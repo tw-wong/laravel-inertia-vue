@@ -45,6 +45,7 @@
           v-model="form.date"
           :class="{'is-invalid': errors.date}"
           class="form-control p-3 datepicker"
+          autocomplete="off"
           placeholder="Please enter date"
         >
         <div
@@ -70,53 +71,62 @@
 </template>
 
 <script>
-  import Layout from '../../Layout'
+import { inject, onMounted } from 'vue'
+import { useForm } from '@inertiajs/inertia-vue3';
+import Layout from '../../Layout'
 
-  export default {
-    name: 'Edit', 
-    
-    layout: Layout,
+export default {
+  name: 'Edit', 
+  
+  components: {
+    Layout, 
+  }, 
+  
+  layout: Layout,
 
-    // metaInfo: {
-    //   title: 'Edit event',
-    //   titleTemplate: '%s - Laravel Inertia.js',
-    // }, 
-
-    props: {
-      errors: {
-        type: Object,
-        required: false, 
-      },       
-      event: {
-        type: Object,
-        required: true
-      }
-    }, 
+  // metaInfo: {
+  //   title: 'Edit event',
+  //   titleTemplate: '%s - Laravel Inertia.js',
+  // }, 
     
-    data() {
-      return {
-        form: this.$inertia.form({
-          title: this.event.title,
-          description: this.event.description, 
-          date: this.event.date, 
-        }),
-      }
-    }, 
+  props: {
+    errors: {
+      type: Object,
+      required: false, 
+    },
     
-    mounted() {
-      var self = this;
+    event: {
+      type: Object,
+      required: true
+    }
+  }, 
+  
+  setup (props) {
+    const route = inject('route');
+    
+    const form = useForm({
+      title: props.event.title,
+      description:  props.event.description, 
+      date:  props.event.date, 
+    });
+    
+    onMounted(() => {
       $('.datepicker').datepicker({
-        onSelect:function(selectedDate, datePicker) {
-            self.form.date = selectedDate;
+        onSelect:function(selectedDate) {
+          form.value.date = selectedDate;
         }, 
         dateFormat: 'yy-mm-dd'
-      });
-    },    
+      });      
+    })
     
-    methods: {
-      submit() {
-        this.$inertia.put(this.$route('events.update', this.event.id), this.form);
-      }
-    },
+    const submit = () => {    
+      form.value.put(route('events.update', props.event.id));      
+    }
+    
+    return {
+      form, 
+      submit
+    }    
   }
+}
 </script>
