@@ -27,30 +27,43 @@
 </template>
 
 <script>
-  import Layout from '../../Layout'
+import { inject } from 'vue'
+import { Inertia } from '@inertiajs/inertia'
+import Layout from '../../Layout'
 
-  export default {
-    name: 'Index', 
-    
-    layout: Layout, 
-    
-    // metaInfo: {
-    //   title: 'Event listing',
-    //   titleTemplate: '%s - Laravel Inertia.js',
-    // }, 
+export default {
+  name: 'Index', 
+  
+  components: {
+    Layout, 
+  }, 
+  
+  layout: Layout,  
+  
+  // metaInfo: {
+  //   title: 'Event listing',
+  //   titleTemplate: '%s - Laravel Inertia.js',
+  // }, 
         
-    props: {
-      events: {
-        type: Array,
-        required: true
+  props: {
+    events: {
+      type: Array,
+      required: true
+    }
+  }, 
+  
+  setup () {
+    const route = inject('route');
+    
+    const deleteEvent = (id) => {
+      if(confirm("Do you really want to delete?")){        
+        Inertia.delete(route('events.destroy', id));
       }
-    }, 
-    methods: {
-      deleteEvent(id) {
-        if(confirm("Do you really want to delete?")){
-          this.$inertia.delete(this.$route('events.destroy', id));
-        }
-      }
-    }, 
+    }
+    
+    return {
+      deleteEvent,
+    }    
   }
+}
 </script>
