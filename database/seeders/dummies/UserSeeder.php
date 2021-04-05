@@ -17,6 +17,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        // Create 1 user with fix email address.
+        User::factory()->hasEvents(2)
+        ->create([
+            'name' => 'John Doe',
+            'email' => 'johndoe@example.com',
+        ]);
+        
         // Create 10 users, each of the user has 2 events.
         // Event will be created based on EventFactory settings.
         
