@@ -26,9 +26,10 @@ class EventFactory extends Factory
     {        
         $dateTime = Carbon::today()->addDays(rand(1, 365));
         return [
-            'title' => $this->faker->name(),
-            'description' => $this->faker->text(),
-            'date' => $this->faker->dateTimeBetween('now', '+ 6 months'),
+            'title'         => $this->faker->name(),
+            'description'   => $this->faker->text(),
+            'date'          => $this->faker->dateTimeBetween('now', '+ 6 months'),
+            'user_id'       => 0,
         ];
     }
 }

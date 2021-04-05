@@ -1,20 +1,20 @@
 <template>
   <main>
-    <header>      
-      <Header />
-    </header>
     <article>
       <slot />
     </article>
+    
+    
+    <Footer />
   </main>
 </template>
 <script>
-  import Header from './Header'
-  export default {
-    name: 'Layout',
-        
-    components: {
-      Header,
-    },  
-  }
+import Footer from './Footer'
+export default {
+  name: 'Layout',
+      
+  components: {
+    Footer,
+  },  
+}
 </script>
