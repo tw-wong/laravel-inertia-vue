@@ -7,7 +7,7 @@ A demo CRUD application built using Laravel, Inertia and Vue.js.
 Clone the repo locally:
 
 ```sh
-git git@github.com:tw-wong/laravel-inertia-vue.git
+git clone git@github.com:tw-wong/laravel-inertia-vue.git
 cd laravel-inertia-vue
 ```
 
@@ -35,16 +35,16 @@ Setup configuration:
 cp .env.example .env
 ```
 
-Generate application key:
-
-```sh
-php artisan key:generate
-```
-
 Create an SQLite database. You can also use another database (MySQL, Postgres), simply update your configuration accordingly.
 
 ```sh
 touch database/database.sqlite
+```
+
+Generate application key:
+
+```sh
+php artisan key:generate
 ```
 
 Run database migrations:
