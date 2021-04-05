@@ -56,17 +56,15 @@ class EventController extends Controller
      */
     public function store(EventCreateRequest $request)
     {
-        
-        $data = $request->validated();        
-        Event::create($data);
-        
-        
+        $data = $request->validated();
+        Auth()->user()->events()->save(new Event($data));
+                
         $user = new stdClass;
         $user->name = 'Hello';
         $message = 'Create success message';
         $this->notification->send($user, $message);
         
-        return redirect()->route('events.index')->with('message', 'Event has been created.');
+        return redirect()->route('mypage.events')->with('message', 'Event has been created.');
     }
 
     /**
@@ -112,7 +110,7 @@ class EventController extends Controller
         $data = $request->validated();
         
         Event::where('id', $id)->update($data);
-        return redirect()->route('events.index')->with('message', 'Event has been updated.');
+        return redirect()->route('mypage.events')->with('message', 'Event has been updated.');
     }
 
     /**
@@ -124,6 +122,6 @@ class EventController extends Controller
     public function destroy(int $id)
     {        
         Event::destroy($id);
-        return redirect()->route('events.index')->with('message', 'Event has been deleted.');
+        return redirect()->route('mypage.events')->with('message', 'Event has been deleted.');
     }
 }

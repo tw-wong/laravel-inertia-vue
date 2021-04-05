@@ -162,6 +162,123 @@ Add `resources/views/app.blade.php`:
 Create `resources/js/Layout.vue`
 
 
+===
+$ php artisan make:migration add_user_id_events_table
+# You need to truncate events table before execute the migration script, because foreign key (user_id) is not nullable.
+$ php artisan migrate
+
+
+# About Factory and Seeder
+Seeder: Use to insert data into DB. Ex: insert 10 records.
+Factory: An instruction on what to insert for a particular model. Ex: insert data with faker value.
+
+Call seeder class to insert data as follows:
+$ php artisan db:seed --class=\\Database\\Seeders\\Dummies\\UserSeeder
+
+Refs: 
+https://appdividend.com/2019/03/11/laravel-model-factories-tutorial-with-example/
+https://laravel-news.com/learn-to-use-model-factories-in-laravel-5-1
+
+==
+Dropdown
+$ npm i popper.js
+
+===
+feature/auth:
+OK - login
+OK - logout
+OK - forgot password
+OK - reset password (enter new password)
+
+No redirect after enter forgot password email.
+- OK fixed. Remain at current page. Add display message and reset form input.
+
+No reset sucess after password has reset and redirect to login page.
+- OK Fixed. Redirect to login page. Add display message (reset success) at login page.
+
+OK - register
+OK - dashboard (after logged in)
+
+Create middleware:
+a. can access if user is login (dashboard, create event, list event).
+- OK fixed.
+
+b. can access if user is the owner or current logged in user is an admin (edit, delete event).
+- OK fixed.
+$ php artisan make:middleware EventOwner
+
+c. can access if user is the admin (edit, delete event)
+
+
+- update profile
+  - /mypage/profile
+- event belongs to user
+  OK - create event
+  OK - edit event
+- Create my event list
+  OK - /mypage/events
+- Update event list to public.
+  - OK.
+- Footer.
+- page auth
+
+optional:
+- two factor
+- team
+
+useful package for Laravel:
+https://www.youtube.com/watch?v=UORMYT8Fs9Y
+
+$ composer require barryvdh/laravel-debugbar --dev
+
+- barryvdh / laravel-ide-helper
+           / laravel-debug-bar
+- beyondcode / laravel-query-detector           
+
+
+# mailhog:
+$ brew install mailhog
+$ brew services start mailhog
+
+$ vi .env
+```
+MAIL_MAILER=smtp
+MAIL_HOST=0.0.0.0
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=admin@local.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+$ php artisan config:cache
+
+# Check mail:
+http://0.0.0.0:8025/
+
+Refs:
+https://medium.com/@viraljetani/laravel-quickly-send-or-test-emails-while-on-localhost-using-mailhog-and-tinker-viral-jetani-c174662c4a71
+
+
+
+$ composer require laravel/jetstream
+$ php artisan jetstream:install inertia --teams
+
+npm install && npm run dev
+php artisan migrate
+
+# Remove tailwindcss, autoprefixer, postcss-import
+npm uninstall @tailwindcss/forms
+npm uninstall @tailwindcss/typography
+npm uninstall autoprefixer
+npm uninstall postcss-import
+npm uninstall tailwindcss
+npm install && npm run dev
+
+
+
+
+
 =========================================
 Create Request class
 
