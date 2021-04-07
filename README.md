@@ -25,7 +25,7 @@ v12.20.1
 ~ brew services start mailhog
 ```
 
-Refs:
+*Refs:*
 
 - NVM: https://jamesauble.medium.com/install-nvm-on-mac-with-brew-adb921fb92cc
 
@@ -76,7 +76,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-- Note:
+*Note:*
 
 - Default database name is `laravel_inertia_vue`. 
 

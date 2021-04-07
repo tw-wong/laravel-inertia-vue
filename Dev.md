@@ -400,7 +400,7 @@ scope
 - protected
 - static
 
-
+Class Database\Seeders\Dummies\EventSeeder located in ./database/seeders/dummies/EventSeeder.php does not comply with psr-4 autoloading standard. Skipping.
 
 
 
